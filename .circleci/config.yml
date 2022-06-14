@@ -1,0 +1,26 @@
+version: 2.1
+
+jobs:
+  # Job one with a unique name
+  job_name_1:
+    docker:
+     - image: cimg/base:2022.05
+    steps:
+      - run: echo "Printing Job name 1."
+  job_name_2:
+    docker:
+     - image: cimg/base:2022.05
+    steps:
+      - run: echo "Printing Job name 2."
+
+workflows:
+  # Name of workflow
+  wokrflow_name_1:
+    # List of jobs that will run
+    jobs:
+      - job_name_1
+      - job_name_2
+  wokrflow_name_2:
+    # List of jobs that will run
+    jobs:
+      - job_name_2
